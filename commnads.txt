@@ -1,0 +1,9 @@
+1. Po stworzeniu plików, uczeń wpisuje w terminalu: docker-compose up -d
+2. W terminalu (będąc w folderze projektu) nadaj mu uprawnienia zapisu dla serwera: chmod 777 uploads
+
+uruchomienie: docker-compose up -d
+zamkniecie kontener: docker-compose down --volumes --remove-orphans
+przebudowanie kontenera: docker-compose up --build -d
+
+http://localhost:8080/index.php
+http://localhost:8080/vuln_xss.php?name=%3Cstyle%3Ebody+%7B+background%3A+red+%21important%3B+%7D%3C%2Fstyle%3E&mode=secure

@@ -1,0 +1,37 @@
+services:
+  db:
+    image: mysql:5.7
+    container_name: lab_db_container
+    environment:
+      MYSQL_ROOT_PASSWORD: root_password
+      MYSQL_DATABASE: lab_db
+    networks:
+      - poligon_net
+
+  web:
+    build: .
+    container_name: lab_web_container
+    ports:
+      - "8080:80"
+    volumes:
+      - ./:/var/www/html
+    depends_on:
+      - db
+    networks:
+      - poligon_net
+
+  phpmyadmin:
+    image: phpmyadmin:latest
+    container_name: lab_pma_container
+    environment:
+      PMA_HOST: db
+    ports:
+      - "8081:80"
+    depends_on:
+      - db
+    networks:
+      - poligon_net
+
+networks:
+  poligon_net:
+    driver: bridge
