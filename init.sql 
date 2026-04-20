@@ -1,11 +1,12 @@
-CREATE TABLE users (
+CREATE TABLE IF NOT EXISTS users (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    username VARCHAR(50),
-    email VARCHAR(50),
-    secret_info VARCHAR(100)
+    username VARCHAR(50) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    secret_info VARCHAR(20) NOT NULL,
 );
 
-INSERT INTO users (username, email, secret_info) VALUES
-('admin', 'admin@szkola.pl', 'HASLO_ADMINA_12345'),
-('jan_kowalski', 'jan@wp.pl', 'Moja tajna notatka'),
-('anna_nowak', 'anna@gmail.com', 'Klucz do serwera: XYZ987');
+INSERT INTO users (username, email, secret_info ) VALUES
+('admin', 'admin@przyklad.pl', 'password Frog34'),
+('janek123', 'janek@przyklad.pl', 'landing on moon was a lie'),
+('testuser', 'test@przyklad.pl', 'matrix is a documental film'),
+('user2025', 'nowy@przyklad.pl', "dont trust anyone");

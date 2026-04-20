@@ -1,3 +1,12 @@
-FROM php:7.4-apache
-# Instalacja rozszerzenia mysqli i pdo_mysql (potrzebne do bazy danych)
-RUN docker-php-ext-install mysqli pdo pdo_mysql
+FROM php:8.3-apache
+
+RUN docker-php-ext-install mysqli && \
+    docker-php-ext-enable mysqli
+
+# Włącz mod_rewrite (na wszelki wypadek)
+RUN a2enmod rewrite
+
+# Apache document root
+ENV APACHE_DOCUMENT_ROOT /var/www/html
+RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-available/*.conf
+RUN sed -ri -e 's!/var/www/!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/apache2.conf /etc/apache2/conf-available/*.conf

