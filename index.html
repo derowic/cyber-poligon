@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Lab - Poligon Web</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { background-color: #0f172a; color: #e2e8f0; }
+        .code-block { background-color: #1e293b; border-left: 4px solid #3b82f6; }
+        .warning-box { border: 2px solid #ef4444; background-color: rgba(239, 68, 68, 0.1); }
+        .accent-color { color: #3b82f6; }
+    </style>
+</head>
+<body class="font-sans leading-relaxed">
+
+    <!-- Hero Section -->
+    <header class="py-12 px-4 text-center bg-slate-800 border-b border-slate-700">
+        <div class="container mx-auto">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">🛡️ Laboratorium Cyberbezpieczeństwa</h1>
+            <p class="text-xl text-blue-400 font-mono italic">Poligon Web: OWASP Top 10 w Praktyce</p>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-8 max-w-4xl">
+        
+        <!-- Opis -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-semibold mb-4 flex items-center italic">
+                <i class="fas fa-info-circle mr-2 accent-color"></i> O projekcie
+            </h2>
+            <p class="text-lg">
+                Witaj w laboratorium poświęconym bezpieczeństwu aplikacji internetowych! Ten projekt to <strong>"poligon doświadczalny"</strong>, który pozwoli Ci poznać najpopularniejsze podatności oraz nauczyć się, jak przed nimi chronić swoje aplikacje. Moduły interaktywne (PHP/MySQL) demonstrują różnice między kodem podatnym a bezpiecznym.
+            </p>
+        </section>
+
+        <!-- Wymagania -->
+        <section class="mb-12 grid md:grid-cols-2 gap-6">
+            <div class="bg-slate-800 p-6 rounded-lg border border-slate-700">
+                <h2 class="text-xl font-semibold mb-3 flex items-center">
+                    <i class="fas fa-tools mr-2 accent-color"></i> Wymagania
+                </h2>
+                <ul class="list-disc list-inside space-y-2">
+                    <li>Docker & Docker Compose</li>
+                    <li>Terminal (Linux/macOS)</li>
+                    <li>PowerShell (Windows)</li>
+                </ul>
+            </div>
+            <div class="bg-slate-800 p-6 rounded-lg border border-slate-700">
+                <h2 class="text-xl font-semibold mb-3 flex items-center">
+                    <i class="fas fa-link mr-2 accent-color"></i> Dostęp do usług
+                </h2>
+                <ul class="list-none space-y-2 font-mono text-sm">
+                    <li><span class="text-blue-400">Aplikacja:</span> localhost:8080</li>
+                    <li><span class="text-blue-400">phpMyAdmin:</span> localhost:8081</li>
+                    <li><span class="text-blue-400">Baza (Host):</span> db (root/root_password)</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Instalacja -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-semibold mb-4 flex items-center">
+                <i class="fas fa-rocket mr-2 accent-color"></i> Instalacja i uruchomienie
+            </h2>
+            
+            <div class="space-y-6">
+                <div>
+                    <h3 class="font-bold mb-2">1. Uruchomienie kontenerów</h3>
+                    <pre class="code-block p-4 rounded font-mono text-sm overflow-x-auto">docker compose up -d --build</pre>
+                </div>
+
+                <div>
+                    <h3 class="font-bold mb-2">2. Nadanie uprawnień (Linux/macOS)</h3>
+                    <pre class="code-block p-4 rounded font-mono text-sm">chmod 777 src/uploads</pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- SQL -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-semibold mb-4 flex items-center">
+                <i class="fas fa-database mr-2 accent-color"></i> Przygotowanie bazy danych
+            </h2>
+            <div class="relative">
+                <pre class="code-block p-4 rounded font-mono text-xs overflow-x-auto text-blue-200">
+CREATE TABLE IF NOT EXISTS users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    secret_info VARCHAR(100) NOT NULL
+);
+
+INSERT INTO users (username, email, secret_info ) VALUES
+('admin', 'admin@przyklad.pl', 'Hasło: Frog34'),
+('janek123', 'janek@przyklad.pl', 'Lądowanie na księżycu to kłamstwo'),
+('testuser', 'test@przyklad.pl', 'Matrix to film dokumentalny'),
+('user2025', 'nowy@przyklad.pl', 'Nie ufaj nikomu');</pre>
+            </div>
+        </section>
+
+        <!-- Zarządzanie -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-semibold mb-4 flex items-center">
+                <i class="fas fa-terminal mr-2 accent-color"></i> Zarządzanie środowiskiem
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 font-mono text-sm">
+                <div class="p-3 bg-slate-800 rounded">Uruchomienie: <span class="text-green-400">docker compose up</span></div>
+                <div class="p-3 bg-slate-800 rounded">Zatrzymanie: <span class="text-yellow-400">docker compose down</span></div>
+                <div class="p-3 bg-slate-800 rounded text-xs">Pełne czyszczenie: <br><span class="text-red-400">docker compose down --volumes</span></div>
+                <div class="p-3 bg-slate-800 rounded">Przebudowanie: <span class="text-blue-400">docker compose up --build</span></div>
+            </div>
+        </section>
+
+        <!-- Warning -->
+        <section class="warning-box p-6 rounded-lg mb-12">
+            <h2 class="text-red-500 font-bold text-xl mb-2 flex items-center">
+                <i class="fas fa-exclamation-triangle mr-2"></i> UWAGA DOTYCZĄCA BEZPIECZEŃSTWA
+            </h2>
+            <ul class="list-disc list-inside text-sm space-y-1 text-gray-300">
+                <li>To laboratorium zawiera celowo podatny kod.</li>
+                <li>Nigdy nie instaluj go na publicznym serwerze.</li>
+                <li>Używaj go wyłącznie w odizolowanym środowisku Docker.</li>
+                <li>Wszystkie techniki ataku wykonuj wyłącznie w celach edukacyjnych.</li>
+            </ul>
+        </section>
+
+    </main>
+
+    <footer class="text-center py-8 text-gray-500 text-sm border-t border-slate-800">
+        <p>&copy; 2025 Laboratorium Cyberbezpieczeństwa. Utworzono w celach edukacyjnych.</p>
+    </footer>
+
+</body>
+</html>

@@ -7,6 +7,8 @@ services:
       MYSQL_DATABASE: lab_db
     networks:
       - poligon_net
+    volumes:
+      - db_data:/var/lib/mysql  
 
   web:
     build: .
@@ -31,7 +33,12 @@ services:
       - db
     networks:
       - poligon_net
+   
 
 networks:
   poligon_net:
     driver: bridge
+
+
+volumes:
+  db_data:

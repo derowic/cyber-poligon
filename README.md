@@ -52,6 +52,9 @@ INSERT INTO users (username, email, secret_info ) VALUES
 ('user2025', 'nowy@przyklad.pl', 'Nie ufaj nikomu');
 
 🧹 Zarządzanie środowiskiem
+Uruchomienie: 
+docker compose up
+
 Zatrzymanie laboratorium:
 docker compose down
 
@@ -60,6 +63,10 @@ docker compose down --volumes --remove-orphans
 
 Przebudowanie po zmianach w Dockerfile:
 docker compose up --build -d
+
+🔗 Dostęp do usług
+Aplikacja Lab: http://localhost:8080
+Baza danych (phpMyAdmin): http://localhost:8081
 
 ⚠️ Uwaga dotycząca bezpieczeństwa
 To laboratorium zawiera celowo podatny kod.

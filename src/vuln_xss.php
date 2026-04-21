@@ -139,7 +139,12 @@ $mode = $_GET['mode'] ?? 'vulnerable';
                     <h6 class="text-warning fw-bold"><i class="bi bi-lightbulb"></i> Zadania dla ucznia:</h6>
                     <ul class="small ps-3 mb-0">
                         <li><strong>Atak 1:</strong> W trybie podatnym wpisz: <br><code>&lt;script&gt;alert('XSS!')&lt;/script&gt;</code></li>
-                        <li><strong>Atak 2 (Stylizacja):</strong> Spróbuj zmienić kolor tła: <br><code>&lt;style&gt;body{background:red !important;}&lt;/style&gt;</code></li>
+                        <li><strong>Atak 2 (Stylizacja):</strong> Spróbuj zmienić kolor tła: <br>
+                        <code>
+                            
+                            &lt;style&gt;body.bg-light { background: red !important; }&lt;/style&gt;
+
+                        </code></li>
                         <li><strong>Porównanie:</strong> Wykonaj Atak 1 w trybie bezpiecznym i spójrz na okno "Co widzi przeglądarka". Zauważ różnicę w interpretacji znaków.</li>
                     </ul>
                 </div>
