@@ -1,3 +1,4 @@
+
 🛡️ Laboratorium Cyberbezpieczeństwa: Poligon Web
 Witaj w laboratorium poświęconym bezpieczeństwu aplikacji internetowych! Ten projekt to "poligon doświadczalny", który pozwoli Ci poznać najpopularniejsze podatności (zgodnie z listą OWASP Top 10) oraz nauczyć się, jak przed nimi chronić swoje aplikacje.
 📌 O projekcie
@@ -20,12 +21,12 @@ Upewnij się, że Twoje pliki są ułożone w następujący sposób:
 
 2. Uruchomienie kontenerów
 Otwórz terminal w folderze projektu i wykonaj komendę:
-docker compose up -d --build
+```docker compose up -d --build```
 Komenda ta zbuduje obraz serwera WWW i uruchomi bazę danych w tle.
 
 3. Nadanie uprawnień (WAŻNE)
 Aby moduł File Upload działał poprawnie, musisz nadać serwerowi uprawnienia do zapisu w folderze uploads. W terminalu (Linux/macOS) wpisz:
-chmod 777 src/uploads
+```chmod 777 src/uploads```
 Na Windows folder zazwyczaj ma uprawnienia zapisu domyślnie, jeśli nie – sprawdź ustawienia folderu).
 
 🔗 Dostęp do usług
@@ -38,7 +39,7 @@ Hasło: root_password
 
 📋 Przygotowanie bazy danych
 Jeśli baza nie zainicjowała się automatycznie, wejdź do phpMyAdmin i wykonaj poniższy skrypt SQL w bazie lab_db:
-CREATE TABLE IF NOT EXISTS users (
+```CREATE TABLE IF NOT EXISTS users (
     id INT AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(50) NOT NULL,
     email VARCHAR(100) NOT NULL,
@@ -50,7 +51,7 @@ INSERT INTO users (username, email, secret_info ) VALUES
 ('janek123', 'janek@przyklad.pl', 'Lądowanie na księżycu to kłamstwo'),
 ('testuser', 'test@przyklad.pl', 'Matrix to film dokumentalny'),
 ('user2025', 'nowy@przyklad.pl', 'Nie ufaj nikomu');
-
+```
 🧹 Zarządzanie środowiskiem
 Uruchomienie: 
 docker compose up
