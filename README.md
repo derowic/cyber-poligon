@@ -21,12 +21,16 @@ Upewnij się, że Twoje pliki są ułożone w następujący sposób:
 
 2. Uruchomienie kontenerów
 Otwórz terminal w folderze projektu i wykonaj komendę:
-```docker compose up -d --build```
+```
+docker compose up -d --build
+```
 Komenda ta zbuduje obraz serwera WWW i uruchomi bazę danych w tle.
 
-3. Nadanie uprawnień (WAŻNE)
+4. Nadanie uprawnień (WAŻNE)
 Aby moduł File Upload działał poprawnie, musisz nadać serwerowi uprawnienia do zapisu w folderze uploads. W terminalu (Linux/macOS) wpisz:
-```chmod 777 src/uploads```
+```
+chmod 777 src/uploads
+```
 Na Windows folder zazwyczaj ma uprawnienia zapisu domyślnie, jeśli nie – sprawdź ustawienia folderu).
 
 🔗 Dostęp do usług
@@ -39,7 +43,8 @@ Hasło: root_password
 
 📋 Przygotowanie bazy danych
 Jeśli baza nie zainicjowała się automatycznie, wejdź do phpMyAdmin i wykonaj poniższy skrypt SQL w bazie lab_db:
-```CREATE TABLE IF NOT EXISTS users (
+```
+CREATE TABLE IF NOT EXISTS users (
     id INT AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(50) NOT NULL,
     email VARCHAR(100) NOT NULL,
